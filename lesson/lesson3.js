@@ -80,7 +80,7 @@
 
 // console.log(arr[2][1]); //у массива 2 элемент с индексом 1
 
-let arr = [true, 'string', NaN, 32];
+// let arr = [true, 'string', NaN, 32];
 
 // for (let i = 0; i < arr.length; i++) { // i отвечает за индекс
 //     console.log(arr[i]);
@@ -124,4 +124,72 @@ let arr = [true, 'string', NaN, 32];
 
 // console.log(arr === arrCopy);
 
+
+//игра
+
+let generatedNumbers = [];
+let attemptsCount = 0;
+
+function resetGame() {
+    generatedNumbers = [];
+    attemptsCount = 0;
+
+    while (generatedNumbers.length < 4) {
+        const part = Math.floor(Math.random() * 10); // 0 - 9
+        if (!generatedNumbers.includes(part)) generatedNumbers.push(part);
+    }
+
+    console.log(generatedNumbers);
+}
+
+function startGame() {
+    while (true) {
+        const guess = prompt('Угадайте 4 разных целых положительных числа, загаданных компьютером. Введите -1 чтобы выйти');
+
+        if (guess === '-1') return alert('Game over');
+
+        if (!isValidGuess(guess)) continue;
+
+        attemptsCount++;
+
+        const result = getGuessResult(guess);
+
+        if (result[0] !== 4) {
+            alert('Быки: ' + result[0] + 'Коровы: ' + result[1] + '.');
+            continue;
+        }
+
+        alert('Поздравлем! Вы угадали все цифры. Количество попыток ' + attemptsCount + '.');
+
+        if (!confirm('Хотите сыграть еще ?')) return alert('До свидания!');
+
+        resetGame();
+    }
+}
+
+function isValidGuess(guess) {
+    if (guess.length !== 4) return false;
+
+    for (let i = 0; i < guess.length; i++) {
+        if (isNaN(parseInt(guess[i])) && guess[i] < 0) return false;
+    }
+
+    return true;
+}
+
+function getGuessResult(guess) {
+    const result = [0, 0];
+    for (let i = 0; i < guess.length; i++) {
+        if (+guess[i] === generatedNumbers[i]) {
+            result[0]++; // result[0] = result[0] + 1
+        } else if (generatedNumbers.includes(+guess[i])) {
+            result[1]++;
+        }
+    }
+
+    return result;
+}
+
+resetGame();
+startGame();
 
