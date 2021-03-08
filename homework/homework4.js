@@ -18,51 +18,6 @@ getObject(userNumber);
 
 //№2
 
-// let Prise = 0;
-
-// const jeans = {
-//     count: 3,
-//     price: 250,
-//     size: ['X', 'S', 'M', 'L', 'XL'],
-//     color: ['red', 'blue', 'white', 'green'],
-//     totalPriceThing() {
-//         return this.price * this.count;
-//     }
-// }
-
-// const caps = {
-//     count: 4,
-//     price: 150,
-//     size: ['X', 'S', 'M', 'L', 'XL'],
-//     color: ['red', 'blue', 'white', 'green'],
-//     totalPriceThing() {
-//         return this.price * this.count;
-//     }
-// }
-
-// const blouses = {
-//     count: 2,
-//     price: 200,
-//     size: ['X', 'S', 'M', 'L', 'XL'],
-//     color: ['red', 'blue', 'white', 'green'],
-//     totalPriceThing() {
-//         return this.price * this.count;
-//     }
-// }
-
-// const socks = {
-//     count: 5,
-//     price: 60,
-//     size: ['X', 'S', 'M', 'L', 'XL'],
-//     color: ['red', 'blue', 'white', 'green'],
-//     totalPriceThing() {
-//         return this.price * this.count;
-//     }
-// }
-
-// Prise = Prise + jeans.totalPriceThing() + caps.totalPriceThing() + blouses.totalPriceThing() + socks.totalPriceThing();
-// console.log(Prise);
-
 let totalPrise = 0;
 
 const card = [
