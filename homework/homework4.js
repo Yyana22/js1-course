@@ -17,57 +17,43 @@ function getObject(number) {
 getObject(userNumber);
 
 //№2
+const basket = {
+    goods: [
+        {
+            type: 'jeans',
+            count: 3,
+            price: 250,
+            size: ['X', 'S', 'M', 'L', 'XL'],
+            color: ['red', 'blue', 'white', 'green'],
+        },
 
-let totalPrise = 0;
+        {
+            type: 'caps',
+            count: 4,
+            price: 150,
+            size: ['X', 'S', 'M', 'L', 'XL'],
+            color: ['red', 'blue', 'white', 'green'],
+        },
 
-const card = [
-    {
-        type: 'jeans',
-        count: 3,
-        price: 250,
-        size: ['X', 'S', 'M', 'L', 'XL'],
-        color: ['red', 'blue', 'white', 'green'],
-        totalPriceThing() {
-            return this.price * this.count;
-        }
-    },
+        {
+            type: 'blouses',
+            count: 2,
+            price: 200,
+            size: ['X', 'S', 'M', 'L', 'XL'],
+            color: ['red', 'blue', 'white', 'green'],
+        },
 
-    {
-        type: 'caps',
-        count: 4,
-        price: 150,
-        size: ['X', 'S', 'M', 'L', 'XL'],
-        color: ['red', 'blue', 'white', 'green'],
-        totalPriceThing() {
-            return this.price * this.count;
-        }
-    },
+        {
+            type: 'socks',
+            count: 5,
+            price: 60,
+            size: ['X', 'S', 'M', 'L', 'XL'],
+            color: ['red', 'blue', 'white', 'green'],
+        },
+    ],
+    countBasketPrice() {
+        return this.goods.reduce((totalPrice, cartItem) => totalPrice + cartItem.price * cartItem.count, 0);
+    }
+};
 
-    {
-        type: 'blouses',
-        count: 2,
-        price: 200,
-        size: ['X', 'S', 'M', 'L', 'XL'],
-        color: ['red', 'blue', 'white', 'green'],
-        totalPriceThing() {
-            return this.price * this.count;
-        }
-    },
-
-    {
-        type: 'socks',
-        count: 5,
-        price: 60,
-        size: ['X', 'S', 'M', 'L', 'XL'],
-        color: ['red', 'blue', 'white', 'green'],
-        totalPriceThing() {
-            return this.price * this.count;
-        }
-    },
-]
-
-for (let i = 0; i < card.length; i++) {
-    console.log(card[i].totalPriceThing());
-    totalPrise += card[i].totalPriceThing();
-}
-console.log(totalPrise);
+console.log(basket.countBasketPrice());
